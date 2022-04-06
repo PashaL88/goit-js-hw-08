@@ -37,6 +37,6 @@ const onContactFOrmSubmit = event => {
   localStorage.removeItem(LOCAL_STORAGE_KEY);
 };
 
-contactFormEl.addEventListener('change', throttle(onContactFormElementChange, 500));
+contactFormEl.addEventListener('input', throttle(onContactFormElementChange, 500));
 contactFormEl.addEventListener('submit', onContactFOrmSubmit);
 contactFormSaves(contactFormEl);
