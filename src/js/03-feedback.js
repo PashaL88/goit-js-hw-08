@@ -4,19 +4,19 @@ import throttle from 'lodash.throttle';
 const contactFormEl = document.querySelector('.feedback-form');
 const LOCAL_STORAGE_KEY = 'feedback-form-state';
 
-// const contactFormSaves = form => {
-//   const contactFormElements = form.elements;
-//   const contactDataFromLocalStorage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+const contactFormSaves = form => {
+  const contactFormElements = form.elements;
+  const contactDataFromLocalStorage = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
 
-//   if (!contactDataFromLocalStorage) {
-//     return;
-//   }
+  if (!contactDataFromLocalStorage) {
+    return;
+  }
 
-//   const keys = Object.keys(contactDataFromLocalStorage);
-//   for (const key of keys) {
-//     contactFormElements[key].value = contactDataFromLocalStorage[key];
-//   }
-// };
+  const keys = Object.keys(contactDataFromLocalStorage);
+  for (const key of keys) {
+    contactFormElements[key].value = contactDataFromLocalStorage[key];
+  }
+};
 
 const onContactFormElementChange = event => {
   const { target } = event;
@@ -39,4 +39,4 @@ const onContactFOrmSubmit = event => {
 
 contactFormEl.addEventListener('input', throttle(onContactFormElementChange, 500));
 contactFormEl.addEventListener('submit', onContactFOrmSubmit);
-// contactFormSaves(contactFormEl);
+contactFormSaves(contactFormEl);
